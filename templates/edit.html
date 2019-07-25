@@ -1,0 +1,22 @@
+<h3 align="center">Edit student</h3>
+<form action="/Edit" align="center" method="POST">
+<table align="center">
+	<tr>
+		<td><label>ID</label></td>
+		<td><input type="text" name="msv" value="{{result.MSV}}"><br></td>
+	</tr>
+	<tr>
+		<td><label>Name</label></td>
+		<td><input type="text" name="name" value="{{result.Name}}"><br></td>
+	</tr>
+		<td><label>Score</label></td>
+		<td><input type="text" name="score" value="{{result.Score}}"><br></td>
+	<tr>
+		<td><label>Type</label></td>
+		<td><input type="text" name="type" value="{{result.Type}}"><br></td>
+	</tr>
+</table>
+	<br>
+	<button type="submit">Edit</button>
+	<input type="button" onclick="location.href='/';" value="Back to menu"/>
+</form>

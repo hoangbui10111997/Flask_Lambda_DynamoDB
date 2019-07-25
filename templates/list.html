@@ -1,0 +1,50 @@
+<script>
+	function alert()
+	{
+		var conf = confirm("Bạn có chắc muốn xoá?");
+		return conf;
+	}
+</script>
+<style>
+	table, th,td{
+		border: 1px solid black;
+		border-collapse: collapse;
+		text-align: center;
+	}
+</style>
+<h3 align="center">Student list</h3>
+<form align="center" action="/List" method="POST">
+	<select name="key">
+	  <option value="MSV" selected="selected">ID</option>
+	  <option value="Name">Name</option>
+	  <option value="Score">Score</option>
+	  <option value="Type">Type</option>
+	</select>
+	<input type="text" name="search">
+	<button type="submit">Search</button>
+</form>
+{% if not student  %}
+	<h4 align="center">NO STUDENT FOUND<h4>
+{% else %}
+<table align="center" width=400px>
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Score</th>
+		<th colspan="2">Option</th>
+	</tr>
+		{% for item in student %}
+			<tr>
+				<td>{{item.MSV}}</td>
+				<td>{{item.Name}}</td>
+				<td>{{item.Score}}</td>
+				<td><a href="/Edit?msv={{item.MSV}}">Edit</a></td>
+				<td><a onclick="return alert();" href="/Delete?msv={{item.MSV}}">Delete</a></td>
+			</tr>
+		{% endfor %}
+</table>
+{% endif %}
+<form align="center" action="/">
+	<br>
+	<button type="submit">Back</button>
+</form>

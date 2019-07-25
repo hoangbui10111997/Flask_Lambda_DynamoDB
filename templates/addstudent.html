@@ -1,0 +1,66 @@
+<style>
+	h2{
+		color: red;
+	}
+</style>
+<script type="text/javascript">
+function validate()
+{
+    var MSV = document.getElementById('msv').value;
+    var Name = document.getElementById('name').value;
+    var Score = document.getElementById('score').value;
+    var Type = document.getElementById('type').value;
+    if (MSV == ''){
+        alert('Bạn chưa nhập ID');
+    }
+    else if (Name == '')
+    {
+        alert('Bạn chưa nhập tên');
+    }
+    else if (Score == '')
+    {
+        alert('Bạn chưa nhập điểm');
+    }
+    else if (Type == '')
+    {
+        alert('Bạn chưa nhập kiểu');
+    }
+    else if (parseFloat(Score)>4.0)
+    {
+    	alert('Điểm luôn thấp hơn 4.0');
+    }
+    else if(isNaN(Score))
+    {
+    	alert('Điểm luôn là số');
+    }
+    else{
+        return true;
+    }
+    return false;
+}
+</script>
+<h3 align="center">Add Student</h3>
+{% if flag == 0 %}
+	<h2 align="center">ID đã tồn tại</h2>
+{% endif %}
+<form action="/Add" align="center" onsubmit="return validate()" method="POST">
+<table align="center">
+	<tr>
+		<td><label>ID</label></td>
+		<td><input type="text" name="msv" id="msv"><br></td>
+	</tr>
+	<tr>
+		<td><label>Name</label></td>
+		<td><input type="text" name="name" id="name"><br></td>
+	</tr>
+		<td><label>Score</label></td>
+		<td><input type="text" name="score" id="score"><br></td>
+	<tr>
+		<td><label>Type</label></td>
+		<td><input type="text" name="type" id="type"><br></td>
+	</tr>
+</table>
+	<br>
+	<button type="submit">Add student</button>
+	<input type="button" onclick="location.href='/';" value="Back to menu"/>
+</form>
